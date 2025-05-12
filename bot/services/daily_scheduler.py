@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 def schedule_daily_word():
     scheduler = AsyncIOScheduler(timezone="Europe/Berlin")
-    trigger = CronTrigger(hour=21, minute=11)  # каждый день в 09:00
+    trigger = CronTrigger(hour=9, minute=00)  # каждый день в 09:00
     scheduler.add_job(_send_daily_to_all, trigger)
     scheduler.start()
     logger.info("Scheduler started for daily word at 09:00 Europe/Berlin")
